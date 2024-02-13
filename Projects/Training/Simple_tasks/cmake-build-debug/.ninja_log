@@ -1,0 +1,20 @@
+# ninja log v5
+1	82	7288362117963088	CMakeFiles/Simple_tasks.dir/main.c.obj	1c571f92037baecb
+83	188	7288362118952332	Simple_tasks.exe	b20112962555e213
+11	121	7289445556463750	CMakeFiles/Simple_tasks.dir/main.c.obj	1c571f92037baecb
+4	155	7289445556835309	CMakeFiles/Simple_tasks.dir/count_duplicate.c.obj	89babec5520df508
+155	288	7289445558110512	Simple_tasks.exe	3a98b4c9f2563678
+3	100	7289445648733232	CMakeFiles/Simple_tasks.dir/count_duplicate.c.obj	89babec5520df508
+101	216	7289445649844128	Simple_tasks.exe	3a98b4c9f2563678
+3	100	7289445740569033	CMakeFiles/Simple_tasks.dir/count_duplicate.c.obj	89babec5520df508
+100	203	7289445741529667	Simple_tasks.exe	3a98b4c9f2563678
+3	106	7289446355645839	CMakeFiles/Simple_tasks.dir/count_duplicate.c.obj	89babec5520df508
+107	234	7289446356838318	Simple_tasks.exe	3a98b4c9f2563678
+2	117	7289571557424919	CMakeFiles/Simple_tasks.dir/count_duplicate.c.obj	89babec5520df508
+117	223	7289571558415327	Simple_tasks.exe	3a98b4c9f2563678
+3	80	7289572120719287	CMakeFiles/Simple_tasks.dir/count_duplicate.c.obj	89babec5520df508
+80	170	7289572121560231	Simple_tasks.exe	3a98b4c9f2563678
+3	95	7289576617241553	CMakeFiles/Simple_tasks.dir/count_duplicate.c.obj	89babec5520df508
+95	196	7289576618208724	Simple_tasks.exe	3a98b4c9f2563678
+2	87	7289577505521919	CMakeFiles/Simple_tasks.dir/count_duplicate.c.obj	89babec5520df508
+88	186	7289577506474682	Simple_tasks.exe	3a98b4c9f2563678
