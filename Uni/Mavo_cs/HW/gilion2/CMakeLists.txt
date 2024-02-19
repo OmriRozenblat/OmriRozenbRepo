@@ -4,4 +4,5 @@ project(gilion2 C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(gilion2 main.c
-        pelindrom.c)
+        pelindrom.c
+        LCES.c)
