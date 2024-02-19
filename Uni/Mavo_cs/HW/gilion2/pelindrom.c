@@ -61,13 +61,11 @@ bool is_palindrome(int num) {
 int calc_num_length(int num) {
     //count digits
     int num_length = 1;
-
     int temp_num = num;
-    if (num > 9) {
-        while (temp_num > 9) {
-            num_length += 1;
-            temp_num = temp_num / 10;
-        }
+
+    while (temp_num > 9) {
+        num_length += 1;
+        temp_num = temp_num / 10;
     }
     return num_length;
 }
