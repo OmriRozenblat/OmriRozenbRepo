@@ -4,14 +4,24 @@
 bool is_palindrome(int);
 int calc_num_length(int num);
 bool calc_num_sum_even(int num);
+int isDoublePalindrome(int num);
 
-
-int main() {
+int main(){
+    int num;
     printf("Please enter a number:\n");
+    if(scanf("%d", &num) != 1){
+        return 0;
+    }
+    if(isDoublePalindrome(num) == 1){
+        printf("The number %d is palindrome", num);
+    }else if (isDoublePalindrome(num) == 2){
+        printf("The number %d is double palindrome", num);
+    }else{
+        printf("The number is not palindrome");
+    }
+}
 
-//    scanf(" %u", &num);
-//    printf("%u", num);
-    int num = 64577546;
+int isDoublePalindrome(int num){
     bool is = is_palindrome(num);
     int res = is;
     if (is == true){
@@ -19,21 +29,18 @@ int main() {
         res += is_even;
         return res;
     }
-    printf("%d", res);
     return  res;
-
 }
-
 
 bool is_palindrome(int num) {
 
     int num_len = calc_num_length(num);
-    int pelindrom_nums_array[num_len];
+    int palindrome_nums_array[num_len];
     int temp_num = num;
 
-        //add pellindrom numbers to array
-    for (int i = 0; i<num_len;i++){
-        pelindrom_nums_array[i] = temp_num % 10;
+    //add palindrome numbers to array
+    for (int i = 0; i<num_len;i++) {
+        palindrome_nums_array[i] = temp_num % 10;
         temp_num = temp_num / 10;
     }
 
@@ -41,10 +48,9 @@ bool is_palindrome(int num) {
     int end_counter = num_len-1;
     // iterate thrugh the array and see if its pellindrom
     while (start_counter <= end_counter) {
-        if (pelindrom_nums_array[start_counter] == pelindrom_nums_array[end_counter]){
+        if (palindrome_nums_array[start_counter] == palindrome_nums_array[end_counter]){
             start_counter += 1;
             end_counter -= 1;
-            continue;
         } else {
             return  false;
         }
