@@ -38,10 +38,12 @@ void longestContinuousEvenSequence(int arr[], int len){
     int second_pointer = 1;
     for (int i =0; i < len; i++){
         if (arr[i] % 2 == 0){
+            //check if the item after it is +2
             while (arr[i+second_pointer] - arr[i+second_pointer-1] == 2){
                 if (second_pointer == 1){
                     temp_arr[0] = arr[i];
                 }
+                //add the item to the temp sequence array
                 temp_arr[second_pointer] = arr[i+second_pointer];
                 second_pointer += 1;
             }
