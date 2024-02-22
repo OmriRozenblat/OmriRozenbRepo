@@ -49,8 +49,8 @@ cmake_ninja_workdir = C$:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/HW/gilion2/
 
 build cmake_object_order_depends_target_gilion2: phony || CMakeFiles/gilion2.dir
 
-build CMakeFiles/gilion2.dir/main.c.obj: C_COMPILER__gilion2_unscanned_Debug C$:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/HW/gilion2/main.c || cmake_object_order_depends_target_gilion2
-  DEP_FILE = CMakeFiles\gilion2.dir\main.c.obj.d
+build CMakeFiles/gilion2.dir/strong_prime_number.c.obj: C_COMPILER__gilion2_unscanned_Debug C$:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/HW/gilion2/strong_prime_number.c || cmake_object_order_depends_target_gilion2
+  DEP_FILE = CMakeFiles\gilion2.dir\strong_prime_number.c.obj.d
   FLAGS = -g -std=gnu99 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\gilion2.dir
   OBJECT_FILE_DIR = CMakeFiles\gilion2.dir
@@ -75,7 +75,7 @@ build CMakeFiles/gilion2.dir/LCES.c.obj: C_COMPILER__gilion2_unscanned_Debug C$:
 #############################################
 # Link the executable gilion2.exe
 
-build gilion2.exe: C_EXECUTABLE_LINKER__gilion2_Debug CMakeFiles/gilion2.dir/main.c.obj CMakeFiles/gilion2.dir/pelindrom.c.obj CMakeFiles/gilion2.dir/LCES.c.obj
+build gilion2.exe: C_EXECUTABLE_LINKER__gilion2_Debug CMakeFiles/gilion2.dir/strong_prime_number.c.obj CMakeFiles/gilion2.dir/pelindrom.c.obj CMakeFiles/gilion2.dir/LCES.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\gilion2.dir
