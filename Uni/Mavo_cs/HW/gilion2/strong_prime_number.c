@@ -9,7 +9,6 @@ int main() {
     unsigned int num;
     int digits_sum = 0;
     scanf(" %u", &num);
-    printf("%u", num);
     do {
         //the new number after calc
         int temp_num = calc_digit_sum(num);
