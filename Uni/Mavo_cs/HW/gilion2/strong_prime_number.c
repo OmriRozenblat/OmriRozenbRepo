@@ -1,21 +1,18 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool is_prime(int);
+bool is_prime(unsigned int);
 unsigned int calc_digit_sum(unsigned int);
 
 int main() {
     printf("Please enter a number:\n");
     unsigned int num;
-    int digits_sum = 0;
     scanf(" %u", &num);
     do {
-        //the new number after calc
-        int temp_num = calc_digit_sum(num);
-        digits_sum += calc_digit_sum(temp_num);
+        num = calc_digit_sum(num);
 
-    } while (digits_sum > 10);
-    if (is_prime(digits_sum)){
+    } while (num > 9);
+    if (is_prime(num)){
         printf("The number %u is a strong prime number!", num);
     } else {
         printf("The number %u is not a strong prime number", num);
@@ -37,10 +34,10 @@ unsigned int calc_digit_sum(unsigned int num){
 
 }
 
-bool is_prime(int num){
+bool is_prime(unsigned int num){
     //check if prime between 0-9
-    int not_prime[] = {4,6,8,9};
-    for (int i = 0; i < 4; i++) {
+    int not_prime[] = {1,4,6,8,9};
+    for (int i = 0; i < 5; i++) {
         if (num == not_prime[i]){
             return false;
         }

@@ -1,7 +1,8 @@
 //#include <stdio.h>
 //#include <stdbool.h>
+//#define array_length 10 //max length of int num
 //
-//bool is_palindrome(int);
+//bool is_palindrome(int num, int num_len);
 //int calc_num_length(int num);
 //bool calc_num_sum_even(int num);
 //int isDoublePalindrome(int num);
@@ -12,43 +13,42 @@
 //    if(scanf("%d", &num) != 1){
 //        return 0;
 //    }
-//    if(isDoublePalindrome(num) == 1){
+//    int res = isDoublePalindrome(num);
+//    if(res == 1){
 //        printf("The number %d is palindrome", num);
-//    }else if (isDoublePalindrome(num) == 2){
+//    } else if (res == 2){
 //        printf("The number %d is double palindrome", num);
-//    }else{
+//    } else {
 //        printf("The number is not palindrome");
 //    }
 //}
 //
 //int isDoublePalindrome(int num){
-//    bool is = is_palindrome(num);
-//    int res = is;
-//    if (is == true){
+//    int num_len = calc_num_length(num);
+//    int res = is_palindrome(num, num_len);
+//    if (res == true){
 //        bool is_even = calc_num_sum_even(num);
 //        res += is_even;
 //        return res;
 //    }
-//    return  res;
+//    return res;
 //}
 //
-//bool is_palindrome(int num) {
-//
-//    int num_len = calc_num_length(num);
-//    int palindrome_nums_array[num_len];
+//bool is_palindrome(int num, int num_len) {
+//    int palindrome_nums[array_length] = {0};
 //    int temp_num = num;
 //
 //    //add palindrome numbers to array
-//    for (int i = 0; i<num_len;i++) {
-//        palindrome_nums_array[i] = temp_num % 10;
+//    for (int i = 0; i < num_len; i++) {
+//        palindrome_nums[i] = temp_num % 10;
 //        temp_num = temp_num / 10;
 //    }
 //
 //    int start_counter = 0;
 //    int end_counter = num_len-1;
-//    // iterate thrugh the array and see if its pellindrom
+//    // iterate through the array and see if its palindrome
 //    while (start_counter <= end_counter) {
-//        if (palindrome_nums_array[start_counter] == palindrome_nums_array[end_counter]){
+//        if (palindrome_nums[start_counter] == palindrome_nums[end_counter]){
 //            start_counter += 1;
 //            end_counter -= 1;
 //        } else {

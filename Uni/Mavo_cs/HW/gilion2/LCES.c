@@ -24,10 +24,10 @@
 ////    int arr[10] = {2, 4,6,6,4,11,14,16,18,23};
 ////    int arr[10] = {2, 4,6,8,4,11,14,16,18,23};
 ////    int arr[10] = {0, 2, 4, 8, 10, 12};
-//    int arr[4] = {1,1,1,3};
+//    int arr[5] = {10,8,6,4,2};
 //
 //
-//    longestContinuousEvenSequence(arr, 4);
+//    longestContinuousEvenSequence(arr, 5);
 //    return 0;
 //}
 //
