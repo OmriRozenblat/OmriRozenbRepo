@@ -8,14 +8,17 @@
 //    printf("Please enter a number:\n");
 //    unsigned int num;
 //    scanf(" %u", &num);
+//    //for the print
+//    unsigned int org_num = num;
+//
 //    do {
 //        num = calc_digit_sum(num);
 //
 //    } while (num > 9);
 //    if (is_prime(num)){
-//        printf("The number %u is a strong prime number!", num);
+//        printf("The number %u is a strong prime number!", org_num);
 //    } else {
-//        printf("The number %u is not a strong prime number", num);
+//        printf("The number %u is not a strong prime number", org_num);
 //    }
 //
 //    return 0;
