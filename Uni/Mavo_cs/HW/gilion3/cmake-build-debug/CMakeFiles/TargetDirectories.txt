@@ -1,0 +1,3 @@
+C:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/HW/gilion3/cmake-build-debug/CMakeFiles/gilion3.dir
+C:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/HW/gilion3/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/HW/gilion3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
