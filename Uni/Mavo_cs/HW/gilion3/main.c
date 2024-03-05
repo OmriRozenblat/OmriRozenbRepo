@@ -11,15 +11,24 @@ void print_board(char board[][MAX_COLS], int rows, int cols);
 
 int min(int num1, int num2);
 
-void game_flow(char board[][MAX_COLS]);
-int get_board_data(int* row_size_ptr, int* col_size_ptr, int* k_ptr );
+int get_board_data(char board[][MAX_COLS],
+                   int* row_size_ptr, int* col_size_ptr, int* k_ptr);
 
 
-void get_player_move(char board[][MAX_COLS], char name, int row_size, int col_size);
-bool insert_in_col(char board[][MAX_COLS], char name, int wanted_col, int row_size);
-bool check_diagonal(char board[][MAX_COLS], int col_size,  int k, char name);
-bool check_row_col(char board[][MAX_COLS], int row_size, int col_size,  int k, char name);
-bool game_over(char board[][MAX_COLS], int row_size, int col_size,  int k, char name, int move_counter);
+void get_player_move(char board[][MAX_COLS],
+                     char name, int row_size, int col_size);
+
+bool insert_in_col(char board[][MAX_COLS],
+                   char name, int wanted_col, int row_size);
+
+bool check_diagonal(char board[][MAX_COLS],
+                    int col_size,  int k, char name);
+
+bool check_row_col(char board[][MAX_COLS]
+                   , int row_size, int col_size,  int k, char name);
+
+bool game_over(char board[][MAX_COLS], int row_size,
+               int col_size,  int k, char name, int move_counter);
 void print_get_row();
 
 void print_get_column();
@@ -45,27 +54,37 @@ void print_win_msg(char player_symbol, int turn_num);
 
 
 int main() {
-    char board[MAX_COLS][MAX_COLS] = {{0}};
+
+    char board[MAX_COLS][MAX_COLS];
+    //fill array with spaces
+    for (int i =0; i< MAX_COLS; i++){
+        for (int j =0; j< MAX_COLS; j++){
+            board[i][j] = ' ';
+        }
+    }
+    //init variables and pointers
     int row_size, col_size, k, move_counter = 0;
     int *row_size_ptr = &row_size, *col_size_ptr = &col_size, *k_ptr = &k;
 
-    if (get_board_data(row_size_ptr, col_size_ptr, k_ptr) == 1){
+    // get the board data from the user via the pointers
+    if (get_board_data(board, row_size_ptr, col_size_ptr, k_ptr) == 1){
         return 1;
     }
+    //game flow
     while (true){
         get_player_move(board, 'Y', row_size, col_size);
         move_counter++;
-        print_board(board, 3, 3);
+        //check if it is a win, draw or none
         if (game_over(board, row_size, col_size, k, 'Y', move_counter)){
             return 0;
         }
         get_player_move(board, 'X', row_size, col_size);
-        print_board(board, 3, 3);
+        move_counter++;
         if(game_over(board, row_size, col_size, k, 'X', move_counter)){
             return 0;
         }
-        move_counter++;
     }
+
 }
 
 
@@ -73,47 +92,35 @@ int main() {
 
 // function implementations
 
-// TODO: add your functions
-void game_flow( char board[][MAX_COLS]){
-    int row_size, col_size, k, move_counter = 0;
-    int *row_size_ptr = &row_size, *col_size_ptr = &col_size, *k_ptr = &k;
-    get_board_data(row_size_ptr, col_size_ptr, k_ptr);
-    while (true){
-        get_player_move(board, 'Y', row_size, col_size);
-        move_counter++;
-        print_board(board, 3, 3);
-        if (game_over(board, row_size, col_size, k, 'Y', move_counter)){
-            return;
-        }
-        get_player_move(board, 'X', row_size, col_size);
-        print_board(board, 3, 3);
-
-        if(game_over(board, row_size, col_size, k, 'X', move_counter)){
-            return;
-        }
-
-        move_counter++;
-    }
-}
-
-void get_player_move(char board[][MAX_COLS], char name, int row_size, int col_size) {
+void get_player_move(char board[][MAX_COLS],
+                     char name, int row_size, int col_size){
     int wanted_col = col_size + 1;
+    //make sure input is valid
     while (wanted_col >= col_size) {
         print_player_enter_col(name);
         scanf(" %d", &wanted_col);
         if (wanted_col >= col_size) {
             print_invalid_input();
         }
-    }
-    while (insert_in_col(board, name, wanted_col, row_size) == false) {
-        scanf(" %d", &wanted_col);
 
     }
+    //if col is full insert will fail, if insert doesnt fail but new input is bad it will fail also
+    while (insert_in_col(board, name, wanted_col, row_size) == false
+                                            || wanted_col >= col_size) {
+        print_player_enter_col(name);
+        scanf(" %d", &wanted_col);
+        if (wanted_col >= col_size) {
+            print_invalid_input();
+        }
+
+    }
+    print_board(board, row_size, col_size);
 
 }
 
 
-int get_board_data(int* row_size_ptr, int* col_size_ptr, int* k_ptr){
+int get_board_data(char board[][MAX_COLS], int* row_size_ptr,
+                   int* col_size_ptr, int* k_ptr){
     print_get_row();
     scanf(" %d", row_size_ptr);
     if (*row_size_ptr > MAX_COLS){
@@ -128,31 +135,39 @@ int get_board_data(int* row_size_ptr, int* col_size_ptr, int* k_ptr){
     }
     print_get_k();
     scanf(" %d", k_ptr);
-    if (k_ptr <= 0) {
+    if (*k_ptr <= 0) {
         *k_ptr = min(*col_size_ptr, *row_size_ptr);
         print_error_k(*k_ptr);
     }
+    print_board(board, *row_size_ptr, *col_size_ptr);
     return 0;
 }
 
-bool insert_in_col(char board[][MAX_COLS], char name, int wanted_col, int row_size){
+bool insert_in_col(char board[][MAX_COLS],
+                   char name, int wanted_col, int row_size){
+    // if array entry is not one of the names, enter in wanted col where empty(start from bottom)
     for (int row=row_size-1; row >= 0; row--) {
-        if (board[row][wanted_col] == 0) {
+        if (board[row][wanted_col] != 'Y' && board[row][wanted_col] != 'X') {
             board[row][wanted_col] = name;
             return true;
         }
     }
-        print_column_full();
-        print_player_enter_col(name);
-        return false;
+    //if condition always fails it is full
+    print_column_full();
+    return false;
     }
 
-bool check_row_col(char board[][MAX_COLS], int row_size, int col_size,  int k, char name) {
-    // check in col
-    int k_counter = 1;
+bool check_row_col(char board[][MAX_COLS], int row_size,
+                   int col_size,  int k, char name) {
+    if(k == 1){
+        return true;
+    }
+    // check in row
     for (int row = 0; row < row_size; row++) {
-        for (int col = 0; col < col_size - k + 1; col++) {
-            if (board[row][col] == board[row][col + 1] && board[row][col] == name) {
+        int k_counter = 1;
+        for (int col = 0; col < col_size - 1; col++) {
+            if (board[row][col] == board[row][col + 1]
+            && board[row][col] == name){
                 k_counter++;
                 if (k_counter == k) {
                     return true;
@@ -160,26 +175,26 @@ bool check_row_col(char board[][MAX_COLS], int row_size, int col_size,  int k, c
             }
         }
     }
-    // check in row
-    k_counter = 1;
+    // check in col
     for (int col = 0; col < col_size; col++) {
-        for (int row = 0; row < row_size - k + 1; row++) {
-            if (board[row][col] == board[row+1][col] && board[row][col] == name) {
+        int k_counter = 1;
+        for (int row = 0; row < row_size - 1; row++) {
+            if (board[row][col] == board[row+1][col]
+            && board[row][col] == name){
                 k_counter++;
                 if (k_counter == k) {
                     return true;
                 }
-
             }
         }
     }
     return false;
 }
 
-bool check_diagonal(char board[][MAX_COLS], int col_size,int k, char name) {
-    //left to right
-    int k_counter =1;
-    for(int row = 0; row<k-1; row++){
+bool check_diagonal(char board[][MAX_COLS], int col_size,int k, char name){
+    // left to right
+    int k_counter = 1;
+    for(int row = 0; row < k-1; row++){
         if (board[row][row] == board[row+1][row+1] && board[row][row] == name){
             k_counter++;
             if (k_counter == k) {
@@ -189,7 +204,7 @@ bool check_diagonal(char board[][MAX_COLS], int col_size,int k, char name) {
     }
     //right to left
     k_counter = 1;
-    for(int row = 0; row<k-1; row++){
+    for(int row = 0; row < k-1; row++){
         if (board[row][col_size-row-1] == board[row+1][col_size-row-2]
         && board[row][col_size-row-1] == name){
             k_counter++;
@@ -201,8 +216,10 @@ bool check_diagonal(char board[][MAX_COLS], int col_size,int k, char name) {
     return false;
 }
 
-bool game_over(char board[][MAX_COLS], int row_size, int col_size, int k, char name, int move_counter) {
-    if(check_diagonal(board, col_size, k, name) || check_row_col(board, row_size, col_size, k, name)){
+bool game_over(char board[][MAX_COLS], int row_size,
+               int col_size, int k, char name, int move_counter) {
+    if(check_diagonal(board, col_size, k, name) ||
+    check_row_col(board, row_size, col_size, k, name)){
 
         print_win_msg(name, move_counter);
         return true;
