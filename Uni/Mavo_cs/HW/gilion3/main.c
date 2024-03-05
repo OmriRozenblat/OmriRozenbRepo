@@ -46,13 +46,29 @@ void print_win_msg(char player_symbol, int turn_num);
 
 int main() {
     char board[MAX_COLS][MAX_COLS] = {{0}};
-//    print_board(board, 3, 3);
-    game_flow(board);
-    printf("finished");
-    // TODO: add your code here
+    int row_size, col_size, k, move_counter = 0;
+    int *row_size_ptr = &row_size, *col_size_ptr = &col_size, *k_ptr = &k;
 
-    return 0;
+    if (get_board_data(row_size_ptr, col_size_ptr, k_ptr) == 1){
+        return 1;
+    }
+    while (true){
+        get_player_move(board, 'Y', row_size, col_size);
+        move_counter++;
+        print_board(board, 3, 3);
+        if (game_over(board, row_size, col_size, k, 'Y', move_counter)){
+            return 0;
+        }
+        get_player_move(board, 'X', row_size, col_size);
+        print_board(board, 3, 3);
+        if(game_over(board, row_size, col_size, k, 'X', move_counter)){
+            return 0;
+        }
+        move_counter++;
+    }
 }
+
+
 
 
 // function implementations
