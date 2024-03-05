@@ -17,8 +17,9 @@ int get_board_data(int* row_size_ptr, int* col_size_ptr, int* k_ptr );
 
 void get_player_move(char board[][MAX_COLS], char name, int row_size, int col_size);
 bool insert_in_col(char board[][MAX_COLS], char name, int wanted_col, int row_size);
-bool game_over(char board[][MAX_COLS], int move_counter);
-
+bool check_diagonal(char board[][MAX_COLS], int col_size,  int k);
+bool check_row_col(char board[][MAX_COLS], int row_size, int col_size,  int k);
+bool game_over(char board[][MAX_COLS], int row_size, int col_size,  int k, char name, int move_counter);
 void print_get_row();
 
 void print_get_column();
@@ -58,17 +59,22 @@ int main() {
 
 // TODO: add your functions
 void game_flow( char board[][MAX_COLS]){
-    int game_over = false;
-    int row_size, col_size, k;
+    int is_game_over = false;
+    int row_size, col_size, k, move_counter = 0;
     int *row_size_ptr = &row_size, *col_size_ptr = &col_size, *k_ptr = &k;
     get_board_data(row_size_ptr, col_size_ptr, k_ptr);
-    while (!game_over){
+    do{
         get_player_move(board, 'Y', row_size, col_size);
+        move_counter++;
+        is_game_over = game_over(board, row_size, col_size, k, 'Y', move_counter);
         print_board(board, 3, 3);
         get_player_move(board, 'X', row_size, col_size);
+        is_game_over = game_over(board, row_size, col_size, k, 'X', move_counter);
+
+        move_counter++;
         print_board(board, 3, 3);
 
-    }
+    } while (!is_game_over);
     //
 
 }
@@ -86,6 +92,7 @@ void get_player_move(char board[][MAX_COLS], char name, int row_size, int col_si
         scanf(" %d", &wanted_col);
 
     }
+
 }
 
 
@@ -122,9 +129,145 @@ bool insert_in_col(char board[][MAX_COLS], char name, int wanted_col, int row_si
         print_player_enter_col(name);
         return false;
     }
-bool game_over(char board[][MAX_COLS], int move_counter){
 
+bool check_row_col(char board[][MAX_COLS], int row_size, int col_size,  int k) {
+    // check in rows
+    int k_counter = 1;
+    for (int row = 0; row < row_size; row++) {
+        for (int col = 0; col < col_size - k + 1; col++) {
+            if (board[row][col] == board[row][col + 1]) {
+                k_counter++;
+                if (k_counter == k) {
+                    return true;
+                }
+            }
+        }
+    }
+    // check in col
+    k_counter = 1;
+    for (int col = 0; col < col_size; col++) {
+        for (int row = 0; row < row_size - k + 1; row++) {
+            if (board[row][col] == board[row][col + 1]) {
+                k_counter++;
+                if (k_counter == k) {
+                    return true;
+                }
+
+            }
+        }
+    }
+    return false;
 }
+
+bool check_diagonal(char board[][MAX_COLS], int col_size,int k) {
+    //left to right
+    int k_counter =1;
+    for(int row = 0; row<k-1; row++){
+        if (board[row][row] == board[row+1][row+1]){
+            k_counter++;
+            if (k_counter == k) {
+                return true;
+            }
+
+        }
+    }
+    //right to left
+    k_counter = 1;
+    for(int row = 0; row<k-1; row++){
+        if (board[row][col_size-row-1] == board[row+1][col_size-row-2]){
+            k_counter++;
+            if (k_counter == k) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool game_over(char board[][MAX_COLS], int row_size, int col_size, int k, char name, int move_counter) {
+    if(check_diagonal(board, row_size, col_size, k) || check_row_col(board, row_size, col_size, k)){
+        print_win_msg(name, move_counter);
+        return true;
+    }
+    // check if boar is full
+    for (int col = 0; col < col_size; col++){
+        if (board[0][col] == 'Y' || board[0][col] == 'X'){
+            print_draw_msg();
+            return true;
+
+        }
+    }
+    return false;
+}
+//bool game_over(char board[][MAX_COLS], int row_size, int col_size,  int k, int row_pos, int col_pos){
+//    // we need to check is there is a draw or a win
+//    //win
+//    //check in row
+//    int k_counter = 1;
+//    for (int col = 0; col<col_size-1; col++){
+//        if (board[row_pos][col] == board[row_pos][col+1]){
+//            k_counter++;
+//        }
+//        if(k_counter==k){
+//            return true;
+//        }
+//    }
+//    //check in col
+//    k_counter = 1;
+//    for (int row = 0; row<row_size-1; row++){
+//        if (board[col_pos][row] == board[col_pos][row+1]){
+//            k_counter++;
+//        }
+//        if(k_counter==k){
+//            return true;
+//        }
+//
+//
+//    }
+//    //check in first diagonal
+//    int temp_row_pos = row_pos;
+//    int temp_col_pos = col_pos;
+//    k_counter = 1;
+//    while (temp_row_pos < row_size-1 && temp_col_pos < col_size-1){
+//        temp_row_pos++;
+//        temp_col_pos++;
+//    }
+//    while (temp_row_pos > row_size-1 && temp_col_pos > col_size-1){
+//        if (board[temp_row_pos][temp_col_pos] == board[temp_row_pos+1][temp_col_pos+1]){
+//            k_counter++;
+//            if(k_counter==k){
+//                return true;
+//            }
+//        }
+//        temp_row_pos--;
+//        temp_col_pos--;
+//
+//    }
+
+
+
+//
+//    //check in second diagonal
+//    temp_row_pos = row_pos;
+//    temp_col_pos = col_pos;
+//    k_counter == 1;
+//    while (temp_row_pos > row_size-1 && temp_col_pos > col_size-1){
+//        temp_row_pos--;
+//        temp_col_pos--;
+//    }
+//    while (temp_row_pos < row_size-1 && temp_col_pos < col_size-1){
+//        if (board[temp_row_pos][temp_col_pos] == board[temp_row_pos-1][temp_col_pos-1]){
+//            k_counter++;
+//            if(k_counter==k){
+//                return true;
+//            }
+//        }
+//        temp_row_pos++;
+//        temp_col_pos++;
+//
+//    }
+//    return  false;
+//}
 
 
 int min(int num1, int num2){
