@@ -104,7 +104,8 @@ void get_player_move(char board[][MAX_COLS],
         }
 
     }
-    //if col is full insert will fail, if insert doesnt fail but new input is bad it will fail also
+    //if col is full insert will fail,
+    // if insert doesnt fail but new input is bad it will fail also
     while (insert_in_col(board, name, wanted_col, row_size) == false
                                             || wanted_col >= col_size) {
         print_player_enter_col(name);
@@ -145,7 +146,8 @@ int get_board_data(char board[][MAX_COLS], int* row_size_ptr,
 
 bool insert_in_col(char board[][MAX_COLS],
                    char name, int wanted_col, int row_size){
-    // if array entry is not one of the names, enter in wanted col where empty(start from bottom)
+    // if array entry is not one of the names,
+    // enter in wanted col where empty(start from bottom)
     for (int row=row_size-1; row >= 0; row--) {
         if (board[row][wanted_col] != 'Y' && board[row][wanted_col] != 'X') {
             board[row][wanted_col] = name;
@@ -166,8 +168,7 @@ bool check_row_col(char board[][MAX_COLS], int row_size,
     for (int row = 0; row < row_size; row++) {
         int k_counter = 1;
         for (int col = 0; col < col_size - 1; col++) {
-            if (board[row][col] == board[row][col + 1]
-            && board[row][col] == name){
+            if(board[row][col] == board[row][col+1] && board[row][col] == name){
                 k_counter++;
                 if (k_counter == k) {
                     return true;
@@ -179,8 +180,7 @@ bool check_row_col(char board[][MAX_COLS], int row_size,
     for (int col = 0; col < col_size; col++) {
         int k_counter = 1;
         for (int row = 0; row < row_size - 1; row++) {
-            if (board[row][col] == board[row+1][col]
-            && board[row][col] == name){
+            if(board[row][col] == board[row+1][col] && board[row][col] == name){
                 k_counter++;
                 if (k_counter == k) {
                     return true;
@@ -195,7 +195,7 @@ bool check_diagonal(char board[][MAX_COLS], int col_size,int k, char name){
     // left to right
     int k_counter = 1;
     for(int row = 0; row < k-1; row++){
-        if (board[row][row] == board[row+1][row+1] && board[row][row] == name){
+        if(board[row][row] == board[row+1][row+1] && board[row][row] == name){
             k_counter++;
             if (k_counter == k) {
                 return true;
