@@ -61,6 +61,24 @@ build CMakeFiles/mid_Term_quiz.dir/reharse.c.obj: C_COMPILER__mid_Term_quiz_unsc
   OBJECT_DIR = CMakeFiles\mid_Term_quiz.dir
   OBJECT_FILE_DIR = CMakeFiles\mid_Term_quiz.dir
 
+build CMakeFiles/mid_Term_quiz.dir/more_quiz.c.obj: C_COMPILER__mid_Term_quiz_unscanned_Debug C$:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/mid_Term_quiz/more_quiz.c || cmake_object_order_depends_target_mid_Term_quiz
+  DEP_FILE = CMakeFiles\mid_Term_quiz.dir\more_quiz.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\mid_Term_quiz.dir
+  OBJECT_FILE_DIR = CMakeFiles\mid_Term_quiz.dir
+
+build CMakeFiles/mid_Term_quiz.dir/more_quiz_2.c.obj: C_COMPILER__mid_Term_quiz_unscanned_Debug C$:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/mid_Term_quiz/more_quiz_2.c || cmake_object_order_depends_target_mid_Term_quiz
+  DEP_FILE = CMakeFiles\mid_Term_quiz.dir\more_quiz_2.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\mid_Term_quiz.dir
+  OBJECT_FILE_DIR = CMakeFiles\mid_Term_quiz.dir
+
+build CMakeFiles/mid_Term_quiz.dir/2023_5.c.obj: C_COMPILER__mid_Term_quiz_unscanned_Debug C$:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/mid_Term_quiz/2023_5.c || cmake_object_order_depends_target_mid_Term_quiz
+  DEP_FILE = CMakeFiles\mid_Term_quiz.dir\2023_5.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\mid_Term_quiz.dir
+  OBJECT_FILE_DIR = CMakeFiles\mid_Term_quiz.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target mid_Term_quiz
@@ -69,7 +87,7 @@ build CMakeFiles/mid_Term_quiz.dir/reharse.c.obj: C_COMPILER__mid_Term_quiz_unsc
 #############################################
 # Link the executable mid_Term_quiz.exe
 
-build mid_Term_quiz.exe: C_EXECUTABLE_LINKER__mid_Term_quiz_Debug CMakeFiles/mid_Term_quiz.dir/main.c.obj CMakeFiles/mid_Term_quiz.dir/reharse.c.obj
+build mid_Term_quiz.exe: C_EXECUTABLE_LINKER__mid_Term_quiz_Debug CMakeFiles/mid_Term_quiz.dir/main.c.obj CMakeFiles/mid_Term_quiz.dir/reharse.c.obj CMakeFiles/mid_Term_quiz.dir/more_quiz.c.obj CMakeFiles/mid_Term_quiz.dir/more_quiz_2.c.obj CMakeFiles/mid_Term_quiz.dir/2023_5.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\mid_Term_quiz.dir

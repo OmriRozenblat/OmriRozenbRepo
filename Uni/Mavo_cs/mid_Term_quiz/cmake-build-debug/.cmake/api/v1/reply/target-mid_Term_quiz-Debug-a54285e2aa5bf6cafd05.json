@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "gilion3.exe"
+			"path" : "mid_Term_quiz.exe"
 		},
 		{
-			"path" : "gilion3.pdb"
+			"path" : "mid_Term_quiz.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -53,11 +53,14 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2,
+				3,
+				4
 			]
 		}
 	],
-	"id" : "gilion3::@6890427a1f51a3e7e1df",
+	"id" : "mid_Term_quiz::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -77,8 +80,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "gilion3",
-	"nameOnDisk" : "gilion3.exe",
+	"name" : "mid_Term_quiz",
+	"nameOnDisk" : "mid_Term_quiz.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -91,7 +94,10 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2,
+				3,
+				4
 			]
 		}
 	],
@@ -100,13 +106,31 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "k_in_row.c",
+			"path" : "main.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "binary_search1.c",
+			"path" : "reharse.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "more_quiz.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "more_quiz_2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "2023_5.c",
 			"sourceGroupIndex" : 0
 		}
 	],
