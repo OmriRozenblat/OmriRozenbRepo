@@ -55,37 +55,37 @@
 //
 //int main() {
 //
-////    char board[MAX_COLS][MAX_COLS];
-////    //fill array with spaces
-////    for (int i =0; i< MAX_COLS; i++){
-////        for (int j =0; j< MAX_COLS; j++){
-////            board[i][j] = ' ';
-////        }
-////    }
-////    //init variables and pointers
-////    int row_size, col_size, k, move_counter = 0;
-////    int *row_size_ptr = &row_size, *col_size_ptr = &col_size, *k_ptr = &k;
-////
-////    // get the board data from the user via the pointers
-////    if (get_board_data(board, row_size_ptr, col_size_ptr, k_ptr) == 1){
-////        return 1;
-////    }
-////    //game flow
-////    while (true){
-////        get_player_move(board, 'Y', row_size, col_size);
-////        move_counter++;
-////        //check if it is a win, draw or none
-////        if (game_over(board, row_size, col_size, k, 'Y', move_counter)){
-////            return 0;
-////        }
-////        get_player_move(board, 'X', row_size, col_size);
-////        move_counter++;
-////        if(game_over(board, row_size, col_size, k, 'X', move_counter)){
-////            return 0;
-////        }
-////    }
-////
-////}
+//    char board[MAX_COLS][MAX_COLS];
+//    //fill array with spaces
+//    for (int i =0; i< MAX_COLS; i++){
+//        for (int j =0; j< MAX_COLS; j++){
+//            board[i][j] = ' ';
+//        }
+//    }
+//    //init variables and pointers
+//    int row_size, col_size, k, move_counter = 0;
+//    int *row_size_ptr = &row_size, *col_size_ptr = &col_size, *k_ptr = &k;
+//
+//    // get the board data from the user via the pointers
+//    if (get_board_data(board, row_size_ptr, col_size_ptr, k_ptr) == 1){
+//        return 1;
+//    }
+//    //game flow
+//    while (true){
+//        get_player_move(board, 'Y', row_size, col_size);
+//        move_counter++;
+//        //check if it is a win, draw or none
+//        if (game_over(board, row_size, col_size, k, 'Y', move_counter)){
+//            return 0;
+//        }
+//        get_player_move(board, 'X', row_size, col_size);
+//        move_counter++;
+//        if(game_over(board, row_size, col_size, k, 'X', move_counter)){
+//            return 0;
+//        }
+//    }
+//
+//}
 //
 //
 //

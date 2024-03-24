@@ -1,0 +1,29 @@
+{
+	"tests":
+	[
+	{
+		"name": "basic permutation test",
+		"input": "hello heoll",
+		"output": "Yes, 'hello' is a permutation of 'heoll'."
+	},
+	{
+		"name": "different length permutation test",
+		"input": "example exampl",
+		"output": "No, 'example' is not a permutation of 'exampl'."
+	},
+	{
+		"name": "different characters test",
+		"input": "ABCDEFG GFEDCBA",
+		"output": "Yes, 'ABCDEFG' is a permutation of 'GFEDCBA'."
+	},
+	{
+		"name": "spaces in words test",
+		"input": "hello world world hello",
+		"output": "Yes, 'hello world' is a permutation of 'world hello'."
+	}
+]
+
+
+}
+
+

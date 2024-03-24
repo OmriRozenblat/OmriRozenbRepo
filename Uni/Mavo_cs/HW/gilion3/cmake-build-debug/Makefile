@@ -152,6 +152,54 @@ binary_search1.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\gilion3.dir\build.make CMakeFiles/gilion3.dir/binary_search1.c.s
 .PHONY : binary_search1.c.s
 
+binary_search2.obj: binary_search2.c.obj
+.PHONY : binary_search2.obj
+
+# target to build an object file
+binary_search2.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gilion3.dir\build.make CMakeFiles/gilion3.dir/binary_search2.c.obj
+.PHONY : binary_search2.c.obj
+
+binary_search2.i: binary_search2.c.i
+.PHONY : binary_search2.i
+
+# target to preprocess a source file
+binary_search2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gilion3.dir\build.make CMakeFiles/gilion3.dir/binary_search2.c.i
+.PHONY : binary_search2.c.i
+
+binary_search2.s: binary_search2.c.s
+.PHONY : binary_search2.s
+
+# target to generate assembly for a file
+binary_search2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gilion3.dir\build.make CMakeFiles/gilion3.dir/binary_search2.c.s
+.PHONY : binary_search2.c.s
+
+bonus_q.obj: bonus_q.c.obj
+.PHONY : bonus_q.obj
+
+# target to build an object file
+bonus_q.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gilion3.dir\build.make CMakeFiles/gilion3.dir/bonus_q.c.obj
+.PHONY : bonus_q.c.obj
+
+bonus_q.i: bonus_q.c.i
+.PHONY : bonus_q.i
+
+# target to preprocess a source file
+bonus_q.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gilion3.dir\build.make CMakeFiles/gilion3.dir/bonus_q.c.i
+.PHONY : bonus_q.c.i
+
+bonus_q.s: bonus_q.c.s
+.PHONY : bonus_q.s
+
+# target to generate assembly for a file
+bonus_q.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gilion3.dir\build.make CMakeFiles/gilion3.dir/bonus_q.c.s
+.PHONY : bonus_q.c.s
+
 k_in_row.obj: k_in_row.c.obj
 .PHONY : k_in_row.obj
 
@@ -188,6 +236,12 @@ help:
 	@echo ... binary_search1.obj
 	@echo ... binary_search1.i
 	@echo ... binary_search1.s
+	@echo ... binary_search2.obj
+	@echo ... binary_search2.i
+	@echo ... binary_search2.s
+	@echo ... bonus_q.obj
+	@echo ... bonus_q.i
+	@echo ... bonus_q.s
 	@echo ... k_in_row.obj
 	@echo ... k_in_row.i
 	@echo ... k_in_row.s

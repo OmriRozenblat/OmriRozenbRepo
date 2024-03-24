@@ -81,6 +81,12 @@
 		<Unit filename="C:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/HW/gilion3/binary_search1.c">
 			<Option target="gilion3"/>
 		</Unit>
+		<Unit filename="C:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/HW/gilion3/binary_search2.c">
+			<Option target="gilion3"/>
+		</Unit>
+		<Unit filename="C:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/HW/gilion3/bonus_q.c">
+			<Option target="gilion3"/>
+		</Unit>
 		<Unit filename="C:/Users/omrir/Git/OmriRozenbRepo/Uni/Mavo_cs/HW/gilion3/k_in_row.c">
 			<Option target="gilion3"/>
 		</Unit>

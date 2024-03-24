@@ -7,4 +7,5 @@ add_executable(gilion3 k_in_row.c
                 binary_search1.c
         binary_search1.c
         binary_search2.c
+        bonus_q.c
 )

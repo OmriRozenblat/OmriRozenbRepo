@@ -13,7 +13,6 @@ int main() {
     int letter_counter = 0;
     char user_input;
     while (scanf(" %c", &user_input) != EOF) {
-
         // convert capital letters to small ones
         if (user_input > 64 && user_input < 91) {
             user_input += 32;
