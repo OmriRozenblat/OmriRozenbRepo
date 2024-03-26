@@ -62,10 +62,34 @@ int main()
 
 /* Your Implementation: */
 
+int readSongLyrics(char *songLyrics[], int songMaxSize, int wordMaxLen){
+    int word_counter = 0;
+
+//    malloc a char array to store user input
+    char* word_in_lyr =
+            (char*) malloc( wordMaxLen * sizeof(char) + 1);
+
+    while((scanf(" %s", word_in_lyr) != EOF)
+    && (word_counter < songMaxSize)){
+//        malloc an array the size of the user input
+        char* word =
+                (char*) malloc( (int)strlen(word_in_lyr) * sizeof(char) + 1);
+//        copy user input to the array
+        strcpy(word, word_in_lyr);
+        songLyrics[word_counter] = word;
+        word_counter++;
+
+    }
+    free(word_in_lyr);
+    return word_counter;
+}
+
+
+
 int* findSwiftyWordIndexes(char *songLyrics[], int songSize, int k){
 
     int word_counter = 0;
-    for(int i=0; i< songSize; i++){
+    for(int i = 0; i < songSize; i++){
         //initialize an array of indexes the size of k
         int* wordidxs = (int*)malloc(k * sizeof(int));
         for (int j=0;j < songSize; j++){
@@ -88,15 +112,21 @@ int* findSwiftyWordIndexes(char *songLyrics[], int songSize, int k){
 }
 
 void encryptSwiftyWord(char *songLyrics[], int wordIdxs[], int k, \
-unsigned char taylorCipherKey[ABC_SIZE]){
+    unsigned char taylorCipherKey[ABC_SIZE]){
 
+//    iterate through the strings in the word index array
     for(int word_index = 0; word_index < k; word_index++){
         int letter_counter = 0;
         int index_of_word_in_song = wordIdxs[word_index];
 
+//        iterate through each word
         while (songLyrics[index_of_word_in_song][letter_counter] != '\0'){
-            unsigned char ABC_letter_index = songLyrics[index_of_word_in_song][letter_counter] - 'a';
-            songLyrics[index_of_word_in_song][letter_counter] = taylorCipherKey[ABC_letter_index];
+            // the letter index in the ABC
+            int ABC_letter_index =
+                    songLyrics[index_of_word_in_song][letter_counter] - 'a';
+//            switch each letter to the encrypted letter
+            songLyrics[index_of_word_in_song][letter_counter] =
+                    taylorCipherKey[ABC_letter_index];
             letter_counter++;
 
     }
@@ -106,23 +136,8 @@ unsigned char taylorCipherKey[ABC_SIZE]){
 
 
 void releaseMemory(char *songLyrics[], int songSize){
-    for(int i=0 ;i < songSize; i++){
+    for(int i = 0 ;i < songSize; i++){
         free(songLyrics[i]);
     }
 }
 
-
-int readSongLyrics(char *songLyrics[], int songMaxSize, int wordMaxLen){
-    int word_counter = 0;
-    char word_in_lyr[wordMaxLen];
-
-    while((scanf(" %s", word_in_lyr) != EOF) && (word_counter <= songMaxSize)){
-        char* word = (char*) malloc( (int)strlen(word_in_lyr) * sizeof(char) + 1);
-        strcpy(word, word_in_lyr);
-        songLyrics[word_counter] = word;
-        word_counter++;
-
-    }
-    return word_counter;
-
-}
