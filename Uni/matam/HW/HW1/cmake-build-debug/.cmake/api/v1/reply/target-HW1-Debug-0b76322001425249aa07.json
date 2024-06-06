@@ -65,7 +65,8 @@
 			"language" : "C",
 			"sourceIndexes" : 
 			[
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -103,7 +104,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -119,6 +121,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
 			"path" : "mtm_bug.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "mtm_tot.c",
 			"sourceGroupIndex" : 0
 		}
 	],

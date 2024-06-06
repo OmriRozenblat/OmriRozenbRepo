@@ -61,6 +61,12 @@ build CMakeFiles/HW1.dir/mtm_bug.c.obj: C_COMPILER__HW1_unscanned_Debug C$:/User
   OBJECT_DIR = CMakeFiles\HW1.dir
   OBJECT_FILE_DIR = CMakeFiles\HW1.dir
 
+build CMakeFiles/HW1.dir/mtm_tot.c.obj: C_COMPILER__HW1_unscanned_Debug C$:/Users/omrir/Git/OmriRozenbRepo/Uni/matam/HW/HW1/mtm_tot.c || cmake_object_order_depends_target_HW1
+  DEP_FILE = CMakeFiles\HW1.dir\mtm_tot.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\HW1.dir
+  OBJECT_FILE_DIR = CMakeFiles\HW1.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target HW1
@@ -69,7 +75,7 @@ build CMakeFiles/HW1.dir/mtm_bug.c.obj: C_COMPILER__HW1_unscanned_Debug C$:/User
 #############################################
 # Link the executable HW1.exe
 
-build HW1.exe: CXX_EXECUTABLE_LINKER__HW1_Debug CMakeFiles/HW1.dir/main.cpp.obj CMakeFiles/HW1.dir/mtm_bug.c.obj
+build HW1.exe: CXX_EXECUTABLE_LINKER__HW1_Debug CMakeFiles/HW1.dir/main.cpp.obj CMakeFiles/HW1.dir/mtm_bug.c.obj CMakeFiles/HW1.dir/mtm_tot.c.obj
   FLAGS = -Wall -pedantic-errors -Werror -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\HW1.dir
